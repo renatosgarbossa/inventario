@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário de Eletrônicos</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+    <div class="container">
+        <h1>Inventário de Eletrônicos da Empresa</h1>
+
+        <a href="visualizar.php?download=true" class="button download-button">
+            Baixar Relatório Completo (CSV)
+        </a>
+
+        <h2>Adicionar Novo Equipamento</h2>
+
+        <form action="adicionar.php" method="POST" class="inventory-form">
+            
+            <label for="tipo">Tipo de Equipamento:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecione...</option>
+                <option value="CPU">CPU / Computador</option>
+                <option value="Monitor">Monitor</option>
+                <option value="Impressora">Impressora</option>
+                <option value="Nobreak">Nobreak</option>
+                <option value="Outro">Outro</option>
+            </select>
+
+            <label for="patrimonio">Nº de Patrimônio (Único):</label>
+            <input type="text" id="patrimonio" name="patrimonio" required>
+
+            <label for="marca_modelo">Marca e Modelo:</label>
+            <input type="text" id="marca_modelo" name="marca_modelo" required>
+
+            <label for="configuracao">Configuração (Ex: i5 10ª, 8GB RAM, 256GB SSD):</label>
+            <textarea id="configuracao" name="configuracao"></textarea>
+
+            <label for="teclado">Modelo do Teclado (Opcional):</label>
+            <input type="text" id="teclado" name="teclado">
+
+            <label for="mouse">Modelo do Mouse (Opcional):</label>
+            <input type="text" id="mouse" name="mouse">
+            
+            <label for="nobreak">Modelo do Nobreak (Opcional):</label>
+            <input type="text" id="nobreak" name="nobreak">
+
+            <label for="localizacao">Localização (Ex: Sala 101, TI):</label>
+            <input type="text" id="localizacao" name="localizacao" required>
+
+            <button type="submit" class="button add-button">Cadastrar Equipamento</button>
+        </form>
+
+        <div id="lista-equipamentos">
+            <h3>Últimos Equipamentos Cadastrados (Visualização Rápida)</h3>
+            <iframe src="visualizar.php" style="width:100%; height:300px; border: 1px solid #ccc;"></iframe>
+        </div>
+
+    </div>
+
+</body>
+</html>
